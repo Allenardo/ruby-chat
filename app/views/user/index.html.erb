@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Real time chat with RoR and MySQL </title>
+  <%= favicon_link_tag 'favicon.ico' %>
+  <%= stylesheet_link_tag 'chat' %>
+</head>
+
+<body>
+<section class="login-box">
+  <header class="login-header">
+    <h1>Chat user selection</h1>
+  </header>
+  <ol class="selection-box">
+    <% @users.each do |user| %>
+      <%= link_to "user/login/#{user.id}" do %> 
+        <li>
+          <div class="user-image">
+            <%= render_profile_pic(user) %>
+          </div> 
+          <p class="user-name"><%= user.user_name %></p>
+        </li>  
+      <% end %>
+    <% end %>
+  </ol>
+  <div class="copyright"> Juan Lizarazo & Devan Allen &copy; <%= Time.now.year %></div>
+</section>
+</body>
+</html>
